@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+.transition {
+    transition: all 0.2s ease-in-out;
+}
+
+@tailwind utilities;
