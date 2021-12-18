@@ -5,8 +5,14 @@ Create and manage notes customizable with labels, theming, media and markdown
 ### TODO
 
 [ ] Sort notes by last edited
-[ ] Actions menu
-[ ] Labels management
+[ ] Actions menu - pin, show, delete, share, change color, change labels
+[ ] Labels management - filtering/crud
+[ ] Note modal
+[ ] Dark theme
+[ ] Search
+[ ] Authentication
+[ ] Database
+[ ] Note sharing
 [ ] Desktop widgets like Sticky Notes
 
 ### Import from Keep
