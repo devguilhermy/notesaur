@@ -1,7 +1,11 @@
-import Note, { NoteData } from '../components/Note';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { useEffect, useState } from 'react';
 
-import Masonry from 'react-masonry-css';
+import Header from '../components/Header';
+import Note from '../components/Note';
+import Sidebar from '../components/Sidebar';
+
+// import Masonry from 'react-masonry-css';
 
 // import noteList from '../notes';
 
@@ -27,32 +31,36 @@ export default function NoteList() {
     }, []);
 
     return (
-        <>
-            {/* <input
-                type="file"
-                multiple
-                onChange={(event) => setFiles(event.target.files}
-            /> */}
-            <Masonry
-                className="p-10 my-masonry-grid"
-                breakpointCols={{
-                    default: 5,
-                    1920: 6,
-                    1536: 5,
-                    1152: 3,
-                    768: 2,
-                    640: 1,
-                }}
-                columnClassName="my-masonry-grid_column"
-            >
-                {notes.map((filename, index) => {
-                    if (index < 500) {
-                        return <Note filename={filename} key={index} />;
-                    } else {
-                        return <div></div>;
-                    }
-                })}
-            </Masonry>
-        </>
+        <div className="min-h-screen antialiased bg-gray-200 flex flex-col h-screen">
+            <Header className="flex-shrink-0" />
+            <div className="flex flex-1 overflow-y-hidden">
+                <Sidebar className="" />
+                <ResponsiveMasonry
+                    columnsCountBreakPoints={{
+                        350: 1,
+                        768: 2,
+                        1024: 3,
+                        1280: 4,
+                        1536: 5,
+                        1792: 6,
+                        2048: 7,
+                        2304: 8,
+                        2560: 9,
+                        2816: 10,
+                    }}
+                    className="w-full overflow-y-auto mt-6"
+                >
+                    <Masonry gutter="30px" className="px-6">
+                        {notes.map((filename, index) => {
+                            if (index > 100 && index < 300) {
+                                return <Note filename={filename} key={index} />;
+                            } else {
+                                return <></>;
+                            }
+                        })}
+                    </Masonry>
+                </ResponsiveMasonry>
+            </div>
+        </div>
     );
 }

@@ -5,21 +5,28 @@ Create and manage notes customizable with labels, theming, media and markdown
 ### TODO
 
 [ ] Sort notes by last edited
-[ ] Actions menu - pin, show, delete, share, change color, change labels
-[ ] Labels management - filtering/crud
+[ ] Actions menu - pin, show, delete, share, duplicate, change color, change labels
+[ ] Labels - sidebar filters/management
 [ ] Note modal
+[ ] Navbar options - changing theme, changing column count, changing note format (portrait, landscape, toggling masonry)
 [ ] Dark theme
 [ ] Markdown support
 [ ] Actual preview for link annotations
+[ ] Notes selection - action from menu propagate to all
 [ ] Note creation
-[ ] Notes selection - action from manu propagate to all
-[ ] Search
+[ ] Note modal interface like ClickUp
+[ ] Note search
+[ ] Favorites
+[ ] Reminders
+[ ] Note comments
+[ ] Map with location
+[ ] Documents upload [all kinds]
+[ ] List of uploaded files with preview
+[ ] Videos upload
+[ ] Note export
 [ ] Authentication
 [ ] Database
 [ ] Note sharing
-[ ] Note export
-[ ] Documents upload [all kinds]
-[ ] Videos upload
 [ ] Desktop widgets like Sticky Notes
 
 ### Import from Keep

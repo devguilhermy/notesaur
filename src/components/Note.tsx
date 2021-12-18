@@ -78,7 +78,7 @@ export default function Note({ filename, className }: NoteProps) {
 
     return (
         <div
-            className={`bg-pink relative mb-7 sm:max-w-xs overflow-hidden rounded-xl ${renderColor(
+            className={`inline-block bg-pink relative rounded-xl ${renderColor(
                 noteData?.color || 'DEFAULT'
             )}  border`}
         >
@@ -119,7 +119,7 @@ export default function Note({ filename, className }: NoteProps) {
             <div className="px-5 py-4">
                 {/*  TITLE */}
                 <h2
-                    className={`text-xl font-semibold ${
+                    className={`text-xl font-semibold leading-tight ${
                         noteData?.title !== '' ? 'block mb-2' : 'hidden'
                     }`}
                 >

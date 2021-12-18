@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 .transition {
     transition: all 0.2s ease-in-out;
 }
