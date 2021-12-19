@@ -1,4 +1,4 @@
-# Noty
+# Notesaur
 
 Create and manage notes customizable with labels, theming, media and markdown
 
