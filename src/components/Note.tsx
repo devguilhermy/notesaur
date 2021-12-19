@@ -50,29 +50,29 @@ export default function Note({ filename, className }: NoteProps) {
     function renderColor(color: string) {
         switch (color) {
             case 'DEFAULT':
-                return 'bg-gray-100 dark:bg-gray-700';
+                return 'bg-gray-100 dark:bg-gray-900 border-gray-200 dark:bg-gray-700';
             case 'BLUE':
-                return 'bg-blue-600 dark:bg-blue-600 border-blue-600 dark:border-blue-600';
+                return 'bg-blue-400 dark:bg-blue-700 border-blue-400 dark:border-blue-600';
             case 'BROWN':
-                return 'bg-stone-500 dark:bg-stone-400 border-stone-500 dark:border-stone-400';
+                return 'bg-stone-400 dark:bg-stone-700 border-stone-400 dark:border-stone-600';
             case 'RED':
-                return 'bg-red-600 dark:bg-red-600';
+                return 'bg-red-500 dark:bg-red-700 border-red-500 dark:border-red-700';
             case 'GREEN':
-                return 'bg-green-600 dark:bg-green-600';
+                return 'bg-green-400 dark:bg-green-700 border-green-400 dark:border-green-700';
             case 'GRAY':
-                return 'bg-gray-600 dark:bg-gray-600';
+                return 'bg-gray-400 dark:bg-gray-700 border-gray-400 dark:border-gray-700';
             case 'PINK':
-                return 'bg-pink-600 dark:bg-gray-600';
+                return 'bg-pink-400 dark:bg-pink-700 border-pink-400 dark:border-pink-700';
             case 'CERULEAN':
-                return 'bg-sky-600 dark:bg-aky-700';
+                return 'bg-cyan-400 dark:bg-cyan-700 border-cyan-400 dark:border-cyan-700';
             case 'ORANGE':
-                return 'bg-orange-600 dark:bg-orange-700';
+                return 'bg-orange-400 dark:bg-orange-700 border-orange-400 dark:border-orange-700';
             case 'YELLOW':
-                return 'bg-yellow-600 dark:bg-yellow-700';
+                return 'bg-yellow-400 dark:bg-yellow-700 border-yellow-400 dark:border-yellow-700';
             case 'TEAL':
-                return 'bg-teal-600 dark:bg-teal-700';
+                return 'bg-teal-400 dark:bg-teal-700 border-teal-400 dark:border-teal-700';
             case 'PURPLE':
-                return 'bg-purple-600 dark:bg-purple-600';
+                return 'bg-purple-400 dark:bg-purple-700 border-purple-400 dark:border-purple-700';
         }
     }
 
@@ -158,7 +158,7 @@ export default function Note({ filename, className }: NoteProps) {
                         noteData.annotations.map((annotation, index) => {
                             return (
                                 <div
-                                    className="flex overflow-hidden bg-gray-100 bg-opacity-50 rounded-lg"
+                                    className="flex overflow-hidden bg-gray-100 bg-opacity-50 rounded-lg shadow"
                                     key={index}
                                 >
                                     <div className="relative flex-none w-14">
@@ -210,7 +210,7 @@ export default function Note({ filename, className }: NoteProps) {
                             .map((attachment, index) => {
                                 return (
                                     <div
-                                        className="flex overflow-hidden bg-gray-100 rounded-lg"
+                                        className="shadow flex overflow-hidden bg-gray-100 rounded-lg"
                                         key={index}
                                     >
                                         <audio controls className="">
@@ -232,7 +232,7 @@ export default function Note({ filename, className }: NoteProps) {
                         noteData.labels.map((label, index) => {
                             return (
                                 <span
-                                    className="relative group flex items-center px-3 py-0.5 bg-gray-200 bg-opacity-50 rounded-full font-medium"
+                                    className="shadow relative group flex items-center px-3 py-0.5 bg-gray-200 bg-opacity-50 rounded-full font-medium"
                                     key={index}
                                 >
                                     {label.name}

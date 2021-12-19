@@ -9,7 +9,11 @@ import Sidebar from '../components/Sidebar';
 
 // import noteList from '../notes';
 
-export default function NoteList() {
+interface NoteListProps {
+    toggleTheme: () => void;
+}
+
+export default function NoteList({ toggleTheme }: NoteListProps) {
     const [notes, setNotes] = useState<[]>([]);
 
     console.log(`${process.env.REACT_APP_SERVER_URL}/notes`);
@@ -31,8 +35,8 @@ export default function NoteList() {
     }, []);
 
     return (
-        <div className="min-h-screen antialiased bg-gray-200 flex flex-col h-screen">
-            <Header className="flex-shrink-0" />
+        <div className="min-h-screen antialiased bg-gray-200 dark:bg-gray-900 flex flex-col h-screen">
+            <Header className="flex-shrink-0" toggleTheme={toggleTheme} />
             <div className="flex flex-1 overflow-y-hidden">
                 <Sidebar className="" />
                 <ResponsiveMasonry

@@ -8,14 +8,15 @@ import { useState } from 'react';
 
 interface HeaderProps {
     className?: string;
+    toggleTheme: () => void;
 }
 
-export default function Header({ className }: HeaderProps) {
+export default function Header({ className, toggleTheme }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <header
-            className={`bg-white xl:bg-white sm:flex sm:items-center sm:justify-between ${className}`}
+            className={`bg-white dark:bg-gray-700 xl:bg-white sm:flex sm:items-center sm:justify-between ${className}`}
         >
             <div className="flex items-center justify-between px-4 py-3 sm:py-4 xl:py-5 xl:w-72 xl:justify-center">
                 <div
@@ -25,8 +26,12 @@ export default function Header({ className }: HeaderProps) {
                     <span>
                         <Icons.Note className="w-8 h-8" />
                     </span>
-                    <span className="ml-1 text-3xl font-black">NOTE</span>
-                    <span className="text-3xl font-light">SAUR</span>
+                    <span className="ml-1 text-3xl font-black dark:text-white">
+                        NOTE
+                    </span>
+                    <span className="text-3xl font-light dark:text-white">
+                        SAUR
+                    </span>
                 </div>
                 <div className="sm:hidden">
                     <button
@@ -63,7 +68,10 @@ export default function Header({ className }: HeaderProps) {
                         <button className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200 focus:bg-gray-700">
                             <Icons.Plus className="block" />
                         </button>
-                        <button className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200 focus:bg-gray-700">
+                        <button
+                            className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200"
+                            onClick={() => toggleTheme()}
+                        >
                             <Icons.DarkMode className="block dark:hidden" />
                             <Icons.LightMode className="hidden dark:block" />
                         </button>
