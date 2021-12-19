@@ -1,17 +1,21 @@
 import {
-    RiArchiveLine as Archive,
-    RiCloseFill as Close,
-    RiMoneyDollarCircleLine as Money,
-    RiStickyNoteLine as Note,
-} from 'react-icons/ri';
-import {
+    MdOutlineArchive as Archive,
+    MdOutlineColorLens as Colors,
+    MdContentCopy as Copy,
     MdDarkMode as DarkMode,
-    MdLabel as Label,
+    MdLabelOutline as Label,
     MdLightMode as LightMode,
+    MdOpenInFull as Open,
     MdOutlinePeopleAlt as People,
+    MdOutlinePushPin as Pin,
     MdSettings as Settings,
     MdStarBorder as Star,
 } from 'react-icons/md';
+import {
+    RiCloseFill as Close,
+    RiMoneyDollarCircleLine as Money,
+    RiStickyNoteFill as Note,
+} from 'react-icons/ri';
 import {
     BsThreeDotsVertical as DotsMenu,
     BsFillGridFill as Grid,
@@ -43,4 +47,8 @@ export const Icons = {
     Grid,
     Dino,
     Archive,
+    Colors,
+    Open,
+    Pin,
+    Copy,
 };

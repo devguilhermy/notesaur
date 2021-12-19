@@ -1,17 +1,24 @@
+import { Dispatch, SetStateAction, useState } from 'react';
 import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { CgClose } from 'react-icons/cg';
 import { Icons } from '../assets/icons';
 import logoImg from '../assets/images/logo.svg';
 import logoImgDark from '../assets/images/logo-dark.svg';
-import { useState } from 'react';
 
 interface HeaderProps {
     className?: string;
     toggleTheme: () => void;
+    columns: string;
+    setColumns: Dispatch<SetStateAction<string>>;
 }
 
-export default function Header({ className, toggleTheme }: HeaderProps) {
+export default function Header({
+    className,
+    toggleTheme,
+    columns,
+    setColumns,
+}: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
@@ -63,19 +70,46 @@ export default function Header({ className, toggleTheme }: HeaderProps) {
                         className="w-full py-2 pl-10 pr-4 text-gray-600 transition bg-gray-200 border-transparent rounded-lg shadow focus:outline-none focus:bg-white focus:text-gray-800"
                     />
                 </div>
+                <select
+                    name=""
+                    id=""
+                    className="block px-3 py-2 ml-auto bg-white border-2 border-transparent shadow dark:text-white dark:bg-gray-800 rounded-xl"
+                    value={columns}
+                    onChange={(event) => setColumns(event.target.value)}
+                >
+                    <option value="">Columns</option>
+                    <option value="1" className="inline">
+                        1
+                    </option>
+                    <option value="2" className="inline">
+                        2
+                    </option>
+                    <option value="3" className="hidden md:inline">
+                        3
+                    </option>
+                    <option value="4" className="hidden lg:inline">
+                        4
+                    </option>
+                    <option value="5" className="hidden xl:inline">
+                        5
+                    </option>
+                    <option value="6" className="hidden xl:inline">
+                        6
+                    </option>
+                </select>
                 <div className="xl:ml-5">
                     <div className="px-2 pt-2 pb-5 font-medium sm:py-0 sm:flex sm:items-center sm:px-5 sm:text-sm xl:px-0">
-                        <button className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200 focus:bg-gray-700">
+                        <button className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3 focus:bg-gray-700">
                             <Icons.Plus className="block" />
                         </button>
                         <button
-                            className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200"
+                            className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3"
                             onClick={() => toggleTheme()}
                         >
                             <Icons.DarkMode className="block dark:hidden" />
                             <Icons.LightMode className="hidden dark:block" />
                         </button>
-                        <button className="block p-2 mt-3 transition rounded-full sm:mt-0 sm:ml-3 bg-gray-200 focus:bg-gray-700">
+                        <button className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3 focus:bg-gray-700">
                             <Icons.Grid className="block" />
                             {/* <Icons.Stack className="block" /> */}
                         </button>
