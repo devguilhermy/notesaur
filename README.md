@@ -7,13 +7,13 @@ Create and manage notes customizable with labels, theming, media and markdown
 ### Features
 
 [X] Masonry grid
-[ ] Actions menu - pin, show, delete, share, duplicate, change color, change labels
+[X] Actions menu - pin, show, delete, share, duplicate, change color, change labels
 [ ] Labels - sidebar filters/management
 [ ] Sort notes by last edited
 [ ] Sorting options
 [ ] Note modal
 [ ] Navbar options - changing theme, changing column count, changing note format (portrait, landscape, toggling masonry)
-[ ] Dark theme
+[X] Dark theme
 [ ] Markdown support
 [ ] Actual preview for link annotations
 [ ] Notes selection - action from menu propagate to all
@@ -38,6 +38,8 @@ Create and manage notes customizable with labels, theming, media and markdown
 
 [ ] Sidebar height
 [ ] Note list padding when sidebar is open
+[ ] Actions menu is displayed after a few seconds
+[ ] Transition animation for actions menu
 
 ### Import from Keep
 

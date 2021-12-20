@@ -1,4 +1,10 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Login from './pages/Login';
+import NewPassword from './pages/NewPassword';
 import NoteList from './pages/NoteList';
+import Settings from './pages/Settings';
+import SignUp from './pages/SignUp';
 import { useState } from 'react';
 
 export default function App() {
@@ -32,8 +38,30 @@ export default function App() {
     }
 
     return (
-        <>
-            <NoteList toggleTheme={toggleTheme} />
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<Login toggleTheme={toggleTheme} />} />
+                <Route
+                    path="/login"
+                    element={<Login toggleTheme={toggleTheme} />}
+                />
+                <Route
+                    path="/sign-up"
+                    element={<SignUp toggleTheme={toggleTheme} />}
+                />
+                <Route
+                    path="/new-password"
+                    element={<NewPassword toggleTheme={toggleTheme} />}
+                />
+                <Route
+                    path="/home"
+                    element={<NoteList toggleTheme={toggleTheme} />}
+                />
+                <Route
+                    path="/settings"
+                    element={<Settings toggleTheme={toggleTheme} />}
+                />
+            </Routes>
+        </BrowserRouter>
     );
 }

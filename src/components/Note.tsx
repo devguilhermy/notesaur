@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Icons } from '../assets/icons';
+import ReactMarkdown from 'react-markdown';
 import { dateFormatter } from '../utils/utils';
 
 export interface NoteData {
@@ -63,7 +64,7 @@ export default function Note({ filename, className }: NoteProps) {
             case 'GRAY':
                 return 'bg-gray-400 dark:bg-gray-700 border-gray-400 dark:border-gray-700';
             case 'PINK':
-                return 'bg-pink-400 dark:bg-pink-700 border-pink-400 dark:border-pink-700';
+                return 'bg-rose-400 dark:bg-rose-700 border-rose-400 dark:border-rose-700';
             case 'CERULEAN':
                 return 'bg-cyan-400 dark:bg-cyan-700 border-cyan-400 dark:border-cyan-700';
             case 'ORANGE':
@@ -73,14 +74,14 @@ export default function Note({ filename, className }: NoteProps) {
             case 'TEAL':
                 return 'bg-teal-400 dark:bg-teal-700 border-teal-400 dark:border-teal-700';
             case 'PURPLE':
-                return 'bg-purple-400 dark:bg-purple-700 border-purple-400 dark:border-purple-700';
+                return 'bg-violet-400 dark:bg-violet-700 border-violet-400 dark:border-violet-700';
         }
     }
 
     return (
         <div className="relative note group">
             <div
-                className={`note-content inline-block bg-pink relative rounded-xl overflow-hidden w-full ${renderColor(
+                className={`note-content shadow inline-block bg-pink relative rounded-xl overflow-hidden w-full ${renderColor(
                     noteData?.color || 'DEFAULT'
                 )}  border`}
             >
@@ -136,7 +137,7 @@ export default function Note({ filename, className }: NoteProps) {
                             noteData?.textContent !== '' ? 'mb-2' : ''
                         }`}
                     >
-                        {noteData?.textContent}
+                        {noteData?.textContent || ' '}
                     </div>
                     {/*  CHECKLIST */}
                     <ul
@@ -147,13 +148,14 @@ export default function Note({ filename, className }: NoteProps) {
                                 : ''
                         }`}
                     >
-                        {noteData?.listContent?.map((listItem) => {
+                        {noteData?.listContent?.map((listItem, index) => {
                             return (
-                                <li>
+                                <li key={index}>
                                     <input
                                         type="checkbox"
                                         checked={listItem.isChecked}
                                         className="bg-gray-400"
+                                        readOnly
                                     />{' '}
                                     <span>{listItem.text}</span>
                                 </li>
@@ -291,7 +293,7 @@ export default function Note({ filename, className }: NoteProps) {
             </div>
             <div
                 className={
-                    'actions-menu hidden flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-2 -right-6 z-30 p-2 rounded-xl bg-white justify-between group-hover:flex transition'
+                    'actions-menu hidden flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-4 -right-6 z-30 p-2 rounded-xl bg-white justify-between group-hover:flex transition'
                 }
             >
                 <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">

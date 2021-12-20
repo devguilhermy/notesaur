@@ -1,5 +1,7 @@
 import {
     MdOutlineArchive as Archive,
+    MdChevronLeft as ArrowLeft,
+    MdChevronRight as ArrowRight,
     MdOutlineColorLens as Colors,
     MdContentCopy as Copy,
     MdDarkMode as DarkMode,
@@ -11,6 +13,11 @@ import {
     MdSettings as Settings,
     MdStarBorder as Star,
 } from 'react-icons/md';
+import {
+    FiArrowUpLeft as ArrowUpLeft,
+    FiArrowUpRight as ArrowUpRight,
+    FiTrash as Trash,
+} from 'react-icons/fi';
 import {
     RiCloseFill as Close,
     RiMoneyDollarCircleLine as Money,
@@ -26,7 +33,6 @@ import {
 import { GiDinosaurRex as Dino } from 'react-icons/gi';
 import { AiOutlineLink as Link } from 'react-icons/ai';
 import { FaNewspaper as Newspaper } from 'react-icons/fa';
-import { FiTrash as Trash } from 'react-icons/fi';
 
 export const Icons = {
     Note,
@@ -51,4 +57,8 @@ export const Icons = {
     Open,
     Pin,
     Copy,
+    ArrowLeft,
+    ArrowRight,
+    ArrowUpRight,
+    ArrowUpLeft,
 };
