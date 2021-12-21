@@ -100,7 +100,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                                         src={`${process.env.REACT_APP_SERVER_URL}/files/${attachment.filePath}`}
                                         alt="Attachment"
                                         className="flex-1 object-cover object-center"
-                                        key={index}
+                                        key={attachment.filePath}
                                     />
                                 );
                             })}
@@ -156,7 +156,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                                 return (
                                     <div
                                         className="flex overflow-hidden bg-gray-100 bg-opacity-50 rounded-lg shadow"
-                                        key={index}
+                                        key={annotation.title.toString() + annotation.url.toString()}
                                     >
                                         <div className="relative flex-none w-14">
                                             <img
@@ -209,7 +209,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                                     return (
                                         <div
                                             className="flex overflow-hidden bg-gray-100 rounded-lg shadow"
-                                            key={index}
+                                            key={attachment.filePath}
                                         >
                                             <audio controls className="">
                                                 <source
@@ -231,7 +231,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                                 return (
                                     <span
                                         className="shadow relative flex items-center px-3 py-0.5 bg-gray-200 bg-opacity-50 rounded-full font-medium"
-                                        key={index}
+                                        key={label.name}
                                     >
                                         {label.name}
                                         {/* DELETE LABEL BUTTON */}
@@ -253,7 +253,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                                 return (
                                     <span
                                         className="relative flex items-center px-3 font-medium bg-gray-200 bg-opacity-50 rounded-full group"
-                                        key={index}
+                                        key={sharee.email}
                                     >
                                         {sharee.email}
                                         <button className="absolute hidden w-4 h-4 bg-white rounded-full right-2 group-hover:block">
