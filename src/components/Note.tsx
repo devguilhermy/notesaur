@@ -92,11 +92,7 @@ export default function Note({ filename, className, isActionsMenuOpen, setOpenAc
                     {noteData?.attachments &&
                         noteData.attachments
                             .filter(
-                                (attachment) =>
-                                    attachment.mimetype === 'image/png' ||
-                                    attachment.mimetype === 'image.jpg' ||
-                                    attachment.mimetype === 'image/jpeg' ||
-                                    attachment.mimetype === 'image/gif'
+                                (attachment) => ['image/png', 'image.jpg', 'image/jpeg', 'image/gif'].includes(attachment.mimetype)
                             )
                             .map((attachment, index) => {
                                 return (
