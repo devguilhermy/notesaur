@@ -30,11 +30,13 @@ export interface NoteData {
 interface NoteProps {
     filename: string;
     className?: string;
+    isActionsMenuOpen: boolean;
+    setOpenActionsMenu: any;
+    ind: number;
 }
 
-export default function Note({ filename, className }: NoteProps) {
+export default function Note({ filename, className, isActionsMenuOpen, setOpenActionsMenu, ind }: NoteProps) {
     const [noteData, setNoteData] = useState<NoteData>();
-    const [isActionsMenuOpen, setIsActionsMenuOpen] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -53,45 +55,37 @@ export default function Note({ filename, className }: NoteProps) {
             case 'DEFAULT':
                 return 'bg-gray-100 dark:bg-gray-900 border-gray-200 dark:bg-gray-700';
             case 'BLUE':
-                return 'bg-blue-400 dark:bg-blue-700 border-blue-400 dark:border-blue-600';
+                return 'bg-blue-200 dark:bg-blue-700 border-blue-200 dark:border-blue-600';
             case 'BROWN':
-                return 'bg-stone-400 dark:bg-stone-700 border-stone-400 dark:border-stone-600';
+                return 'bg-stone-200 dark:bg-stone-700 border-stone-200 dark:border-stone-600';
             case 'RED':
-                return 'bg-red-500 dark:bg-red-700 border-red-500 dark:border-red-700';
+                return 'bg-red-200 dark:bg-red-700 border-red-200 dark:border-red-700';
             case 'GREEN':
-                return 'bg-green-400 dark:bg-green-700 border-green-400 dark:border-green-700';
+                return 'bg-green-200 dark:bg-green-700 border-green-200 dark:border-green-700';
             case 'GRAY':
-                return 'bg-gray-400 dark:bg-gray-700 border-gray-400 dark:border-gray-700';
+                return 'bg-gray-200 dark:bg-gray-700 border-gray-200 dark:border-gray-700';
             case 'PINK':
-                return 'bg-pink-400 dark:bg-pink-700 border-pink-400 dark:border-pink-700';
+                return 'bg-pink-200 dark:bg-pink-700 border-pink-200 dark:border-pink-700';
             case 'CERULEAN':
-                return 'bg-cyan-400 dark:bg-cyan-700 border-cyan-400 dark:border-cyan-700';
+                return 'bg-cyan-200 dark:bg-cyan-700 border-cyan-200 dark:border-cyan-700';
             case 'ORANGE':
-                return 'bg-orange-400 dark:bg-orange-700 border-orange-400 dark:border-orange-700';
+                return 'bg-orange-200 dark:bg-orange-700 border-orange-200 dark:border-orange-700';
             case 'YELLOW':
-                return 'bg-yellow-400 dark:bg-yellow-700 border-yellow-400 dark:border-yellow-700';
+                return 'bg-yellow-200 dark:bg-yellow-700 border-yellow-200 dark:border-yellow-700';
             case 'TEAL':
-                return 'bg-teal-400 dark:bg-teal-700 border-teal-400 dark:border-teal-700';
+                return 'bg-teal-200 dark:bg-teal-700 border-teal-200 dark:border-teal-700';
             case 'PURPLE':
-                return 'bg-purple-400 dark:bg-purple-700 border-purple-400 dark:border-purple-700';
+                return 'bg-purple-200 dark:bg-purple-700 border-purple-200 dark:border-purple-700';
         }
     }
 
     return (
-        <div className="relative note group">
+        <div className="relative note group" onMouseLeave={() => setOpenActionsMenu(-1)}>
             <div
                 className={`note-content inline-block bg-pink relative rounded-xl overflow-hidden w-full ${renderColor(
                     noteData?.color || 'DEFAULT'
                 )}  border`}
             >
-                {/* <div className="absolute inset-0 w-full h-full group">
-                    <button
-                        className="absolute top-0 right-0 z-20 hidden p-2 transition bg-white bg-opacity-50 group-hover:block rounded-bl-xl hover:shadow-md hover:bg-opacity-100"
-                        onClick={() => setIsActionsMenuOpen(!isActionsMenuOpen)}
-                    >
-                        <Icons.DotsMenu className="w-4 h-4" />
-                    </button>
-                </div> */}
 
                 {/* IMAGE ATTACHMENTS */}
                 <div className="flex flex-col gap-2 overflow-hidden rounded-xl">
@@ -112,18 +106,13 @@ export default function Note({ filename, className }: NoteProps) {
                                         className="flex-1 object-cover object-center"
                                         key={index}
                                     />
-                                    // {/* DELETE IMAGE BUTTON OVERLAY */
-                                    // /* <div className="absolute inset-0 items-center justify-center hidden w-full h-full transition bg-black group-hover:block bg-opacity-20">
-                                    //     <button className="absolute p-2 bg-white rounded-full shadow-xl top-3 left-3">
-                                    //         <Icons.Close className="w-5 h-5" />
-                                    //     </button>
-                                    // </div> */}
                                 );
                             })}
                 </div>
-                <div className="px-5 py-4">
+                <div className="px-5 py-4" 
+                    onMouseDown={() => setOpenActionsMenu(ind)}>
                     {/*  TITLE */}
-                    <h2
+                    <h2 
                         className={`text-xl font-semibold leading-tight ${
                             noteData?.title !== '' ? 'block mb-2' : 'hidden'
                         }`}
@@ -152,7 +141,7 @@ export default function Note({ filename, className }: NoteProps) {
                                 <li>
                                     <input
                                         type="checkbox"
-                                        checked={listItem.isChecked}
+                                        defaultChecked={listItem.isChecked}
                                         className="bg-gray-400"
                                     />{' '}
                                     <span>{listItem.text}</span>
@@ -289,24 +278,25 @@ export default function Note({ filename, className }: NoteProps) {
                     </div>
                 </div>
             </div>
+            {/* ACTION MENU */}
             <div
                 className={
-                    'actions-menu hidden flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-2 -right-6 z-30 p-2 rounded-xl bg-white justify-between group-hover:flex transition'
+                    `flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-2 -right-6 z-30 p-2 rounded-xl bg-white justify-between ${ !isActionsMenuOpen && 'hidden' }`
                 }
             >
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Open className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Pin className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Star className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Colors className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full group-hover:block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Label className="w-5 h-5" />
                 </button>
                 {/* <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
@@ -318,7 +308,7 @@ export default function Note({ filename, className }: NoteProps) {
                 <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full group-hover:block hover:shadow-md hover:bg-opacity-100">
                     <Icons.Archive className="w-5 h-5" />
                 </button> */}
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
+                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 block hover:shadow-md hover:bg-opacity-100">
                     <Icons.Trash className="w-5 h-5" />
                 </button>
             </div>
