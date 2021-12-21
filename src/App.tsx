@@ -5,20 +5,16 @@ export default function App() {
     const [theme, setTheme] = useState('');
 
     const toggleTheme = (reset?: 'reset') => {
-        if (!reset) {
-            let new_theme;
-            if (theme === 'dark') {
-                new_theme = 'light';
-            } else {
-                new_theme = 'dark';
-            }
 
-            localStorage.setItem('theme', new_theme);
-            setTheme(new_theme);
-        } else {
+        if (reset) { // Guard clause
             localStorage.removeItem('theme');
             setTheme('');
+            return;
         }
+        
+        let new_theme = theme === 'dark' ? 'light' : 'dark'
+        localStorage.setItem('theme', new_theme);
+        setTheme(new_theme);
     };
 
     if (
