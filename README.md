@@ -7,8 +7,9 @@ Create and manage notes customizable with labels, theming, media and markdown
 ### Features
 
 -   [x] Masonry grid
--   [ ] Actions menu - pin, show, delete, share, duplicate, change color, change labels
+-   [x] Actions menu - pin, show, delete, share, duplicate, change color, change labels
 -   [ ] Labels - sidebar filters/management
+-   [ ] Lazy loading for notes
 -   [ ] Sort notes by last edited
 -   [ ] Sorting options
 -   [ ] Note modal

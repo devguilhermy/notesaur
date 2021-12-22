@@ -3,8 +3,6 @@ import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { CgClose } from 'react-icons/cg';
 import { Icons } from '../assets/icons';
-import logoImg from '../assets/images/logo.svg';
-import logoImgDark from '../assets/images/logo-dark.svg';
 
 interface HeaderProps {
     className?: string;

@@ -179,9 +179,7 @@ export default function Note({
                                     >
                                         <div className="relative flex-none w-14">
                                             <img
-                                                src={`https://picsum.photos/320/320?random=${
-                                                    index + 3
-                                                }`}
+                                                src={`https://picsum.photos/320/320?random=${index}`}
                                                 alt="Link preview"
                                                 className="absolute inset-0 object-cover w-full h-full"
                                             />

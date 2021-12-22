@@ -11,14 +11,14 @@ export default function App() {
     const [theme, setTheme] = useState('');
 
     const toggleTheme = (reset?: 'reset') => {
-
-        if (reset) { // Guard clause
+        if (reset) {
+            // Guard clause
             localStorage.removeItem('theme');
             setTheme('');
             return;
         }
-        
-        let new_theme = theme === 'dark' ? 'light' : 'dark'
+
+        let new_theme = theme === 'dark' ? 'light' : 'dark';
         localStorage.setItem('theme', new_theme);
         setTheme(new_theme);
     };

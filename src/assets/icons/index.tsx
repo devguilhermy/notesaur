@@ -5,11 +5,14 @@ import {
     MdOutlineColorLens as Colors,
     MdContentCopy as Copy,
     MdDarkMode as DarkMode,
+    MdInfoOutline as Info,
     MdLabelOutline as Label,
     MdLightMode as LightMode,
     MdOpenInFull as Open,
     MdOutlinePeopleAlt as People,
     MdOutlinePushPin as Pin,
+    MdLockOutline as Privacy,
+    MdOutlineSecurity as Security,
     MdSettings as Settings,
     MdStarBorder as Star,
 } from 'react-icons/md';
@@ -20,8 +23,10 @@ import {
 } from 'react-icons/fi';
 import {
     RiCloseFill as Close,
+    RiComputerLine as Interface,
     RiMoneyDollarCircleLine as Money,
     RiStickyNoteFill as Note,
+    RiUserLine as User,
 } from 'react-icons/ri';
 import {
     BsThreeDotsVertical as DotsMenu,
@@ -61,4 +66,9 @@ export const Icons = {
     ArrowRight,
     ArrowUpRight,
     ArrowUpLeft,
+    Security,
+    Privacy,
+    User,
+    Interface,
+    Info,
 };

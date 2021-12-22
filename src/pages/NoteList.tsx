@@ -37,8 +37,8 @@ export default function NoteList({ toggleTheme }: NoteListProps) {
     }, []);
 
     useEffect(() => {
-        setOpenActionsMenu(-1)
-    }, [notes])
+        setOpenActionsMenu(-1);
+    }, [notes]);
 
     return (
         <div className="flex flex-col h-screen min-h-screen antialiased bg-gray-200 dark:bg-gray-900">
@@ -52,8 +52,7 @@ export default function NoteList({ toggleTheme }: NoteListProps) {
                 <Sidebar className="" />
                 <ResponsiveMasonry
                     columnsCountBreakPoints={
-                        columns || 
-                        {
+                        columns || {
                             350: 1,
                             768: 2,
                             1024: 3,
@@ -69,12 +68,22 @@ export default function NoteList({ toggleTheme }: NoteListProps) {
                     className="w-full p-5 mt-6 overflow-y-auto"
                 >
                     <Masonry gutter="30px" className="px-6">
-                        {
-                            notes.map((note, index) => {
-                                console.log(openActionsMenu)
-                                return <Note filename={note} isActionsMenuOpen={index === openActionsMenu} setOpenActionsMenu={setOpenActionsMenu} ind={index} key={note} /* Using note (filename) as key 'cause it's unique */ />
-                            })
-                        }
+                        {notes.map((note, index) => {
+                            console.log(openActionsMenu);
+                            if (index < 100) {
+                                return (
+                                    <Note
+                                        filename={note}
+                                        isActionsMenuOpen={
+                                            index === openActionsMenu
+                                        }
+                                        setOpenActionsMenu={setOpenActionsMenu}
+                                        ind={index}
+                                        key={note}
+                                    />
+                                );
+                            }
+                        })}
                     </Masonry>
                 </ResponsiveMasonry>
             </div>

@@ -1,5 +1,3 @@
-import { FiFilter, FiSearch } from 'react-icons/fi';
-
 import { Icons } from '../assets/icons';
 import { useState } from 'react';
 
@@ -16,15 +14,6 @@ export default function Sidebar({ className }: SidebarProps) {
         { name: 'Receitas' },
         { name: 'Programação' },
         { name: 'TODO' },
-        { name: 'Viagens' },
-        { name: 'Receitas' },
-        { name: 'Programação' },
-        { name: 'TODO' },
-        { name: 'Receitas' },
-        { name: 'Programação' },
-        { name: 'TODO' },
-        { name: 'Viagens' },
-        { name: 'Viagens' },
     ]);
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -92,7 +81,7 @@ export default function Sidebar({ className }: SidebarProps) {
                     </div>
                     <div className="flex flex-col justify-end flex-1 gap-2 p-5">
                         <a
-                            href={`/shared`}
+                            href={'/favorites'}
                             className="flex items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-xl"
                         >
                             <Icons.Star className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
@@ -118,7 +107,7 @@ export default function Sidebar({ className }: SidebarProps) {
                             </span>
                         </a>
                         <a
-                            href={`/shared`}
+                            href={`/posts`}
                             className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700 "
                         >
                             <Icons.Newspaper className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
@@ -131,7 +120,7 @@ export default function Sidebar({ className }: SidebarProps) {
                             </span>
                         </a>
                         <a
-                            href={`/shared`}
+                            href={`/trash`}
                             className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
                         >
                             <Icons.Trash className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
@@ -144,7 +133,7 @@ export default function Sidebar({ className }: SidebarProps) {
                             </span>
                         </a>
                         <a
-                            href={`/shared`}
+                            href={'/archive'}
                             className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
                         >
                             <Icons.Archive className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
@@ -153,11 +142,11 @@ export default function Sidebar({ className }: SidebarProps) {
                                     isSidebarOpen ? 'inline' : 'hidden '
                                 }`}
                             >
-                                Arquive
+                                Archive
                             </span>
                         </a>
                         <a
-                            href={`/shared`}
+                            href={`/settings`}
                             className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
                         >
                             <Icons.Settings className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
