@@ -8,17 +8,21 @@ import {
     MdInfoOutline as Info,
     MdLabelOutline as Label,
     MdLightMode as LightMode,
+    MdMail as Mail,
     MdOpenInFull as Open,
     MdOutlinePeopleAlt as People,
+    MdPhone as Phone,
     MdOutlinePushPin as Pin,
     MdLockOutline as Privacy,
     MdOutlineSecurity as Security,
     MdSettings as Settings,
+    MdSmartphone as Smartphone,
     MdStarBorder as Star,
 } from 'react-icons/md';
 import {
     FiArrowUpLeft as ArrowUpLeft,
     FiArrowUpRight as ArrowUpRight,
+    FiBell as Bell,
     FiTrash as Trash,
 } from 'react-icons/fi';
 import {
@@ -71,4 +75,8 @@ export const Icons = {
     User,
     Interface,
     Info,
+    Smartphone,
+    Mail,
+    Phone,
+    Bell,
 };
