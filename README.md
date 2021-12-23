@@ -19,7 +19,6 @@ Create and manage notes customizable with labels, theming, media and markdown
 -   [ ] Actual preview for link annotations
 -   [ ] Notes selection - action from menu propagate to all
 -   [ ] Note creation
--   [ ] Note modal interface like ClickUp
 -   [ ] Note search
 -   [ ] Favorites
 -   [ ] Reminders
@@ -37,6 +36,7 @@ Create and manage notes customizable with labels, theming, media and markdown
 
 ### Improve
 
+-   [ ] Clicking anywhere on the note should trigger the Actions Menu
 -   [ ] Sidebar height
 -   [ ] Note list padding when sidebar is open
 

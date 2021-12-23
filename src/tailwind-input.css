@@ -9,4 +9,8 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
+.tab-button {
+    @apply flex items-center gap-2 px-2 justify-center py-3 font-semibold text-center text-gray-700 uppercase list-none transition bg-gray-100 shadow dark:bg-gray-700 dark:text-gray-100 dark:bg-opacity-50 rounded-xl;
+}
+
 @tailwind utilities;

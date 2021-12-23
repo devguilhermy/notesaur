@@ -293,9 +293,9 @@ export default function Note({
             </div>
             {/* ACTION MENU */}
             <div
-                className={
-                    'actions-menu hidden flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-4 -right-6 z-30 p-2 rounded-xl bg-white justify-between group-hover:flex transition'
-                }
+                className={`actions-menu flex-col shadow-lg dark:bg-gray-700 gap-2 absolute -top-4 -right-6 z-30 p-2 rounded-xl bg-white justify-between transition ${
+                    isActionsMenuOpen ? 'group-hover:flex' : 'hidden'
+                }`}
             >
                 <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Open className="w-5 h-5" />
