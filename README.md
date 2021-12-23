@@ -16,6 +16,7 @@ Create and manage notes customizable with labels, theming, media and markdown
 -   [ ] Navbar options - changing theme, changing column count, changing note format (portrait, landscape, toggling masonry)
 -   [ ] Dark theme
 -   [ ] Markdown support
+-   [ ] Interface and notes settings
 -   [ ] Actual preview for link annotations
 -   [ ] Notes selection - action from menu propagate to all
 -   [ ] Note creation
@@ -31,11 +32,13 @@ Create and manage notes customizable with labels, theming, media and markdown
 -   [ ] Spaces/notebooks for grouping notes
 -   [ ] Authentication
 -   [ ] Database
+-   [ ] Multi-factor authentication
 -   [ ] Note sharing
 -   [ ] Desktop widgets like Sticky Notes
 
 ### Improve
 
+-   [ ] Screen height bug
 -   [ ] Clicking anywhere on the note should trigger the Actions Menu
 -   [ ] Sidebar height
 -   [ ] Note list padding when sidebar is open
