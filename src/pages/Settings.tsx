@@ -6,16 +6,14 @@ import NoteSettings from './Settings/Note';
 import SecuritySettings from './Settings/Security';
 import { useState } from 'react';
 
-interface SettingsProps {
-    toggleTheme: () => void;
-}
+interface SettingsProps {}
 
-export default function Settings({ toggleTheme }: SettingsProps) {
+export default function Settings(props: SettingsProps) {
     const [option, setOption] = useState('account');
 
     return (
         <div className="flex flex-col h-full antialiased bg-gray-200 dark:bg-gray-900">
-            <Header className="flex-shrink-0" toggleTheme={toggleTheme} />
+            <Header className="flex-shrink-0" />
             {/* PAGE CONTENT */}
             <div className="h-full px-5 py-8">
                 <div className="flex flex-col h-full lg:flex-row">

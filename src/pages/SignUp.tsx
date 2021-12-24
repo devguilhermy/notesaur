@@ -2,11 +2,9 @@ import { Icons } from '../assets/icons';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-interface SignUpProps {
-    toggleTheme: () => void;
-}
+interface SignUpProps {}
 
-export default function SignUp({ toggleTheme }: SignUpProps) {
+export default function SignUp(props: SignUpProps) {
     const [stage, setStage] = useState(1);
 
     let navigate = useNavigate();

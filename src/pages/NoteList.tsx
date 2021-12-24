@@ -9,11 +9,9 @@ import Sidebar from '../components/Sidebar';
 
 // import noteList from '../notes';
 
-interface NoteListProps {
-    toggleTheme: () => void;
-}
+interface NoteListProps {}
 
-export default function NoteList({ toggleTheme }: NoteListProps) {
+export default function NoteList(props: NoteListProps) {
     const [notes, setNotes] = useState([]);
     const [openActionsMenu, setOpenActionsMenu] = useState(-1);
     const [columns, setColumns] = useState('');
@@ -44,7 +42,6 @@ export default function NoteList({ toggleTheme }: NoteListProps) {
         <div className="flex flex-col h-screen min-h-screen antialiased bg-gray-200 dark:bg-gray-900">
             <Header
                 className="flex-shrink-0"
-                toggleTheme={toggleTheme}
                 columns={columns}
                 setColumns={setColumns}
             />

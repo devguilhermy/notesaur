@@ -1,30 +1,31 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { FiMenu, FiSearch } from 'react-icons/fi';
 
-import { CgClose } from 'react-icons/cg';
 import { Icons } from '../assets/icons';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../hooks/useTheme';
 
 interface HeaderProps {
     className?: string;
-    toggleTheme: () => void;
     columns?: string;
     setColumns?: Dispatch<SetStateAction<string>>;
 }
 
 export default function Header({
     className,
-    toggleTheme,
     columns,
     setColumns,
 }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const { toggleTheme } = useTheme();
 
     return (
         <header
             className={`bg-white dark:bg-gray-700 xl:bg-white sm:flex sm:items-center sm:justify-between ${className}`}
         >
             <div className="flex items-center justify-between px-4 py-3 sm:py-4 xl:py-5 xl:w-72 xl:justify-center">
-                <div
+                <Link
+                    to="/home"
                     className="flex items-center"
                     style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
@@ -37,7 +38,7 @@ export default function Header({
                     <span className="text-3xl font-light dark:text-white">
                         SAUR
                     </span>
-                </div>
+                </Link>
                 <div className="sm:hidden">
                     <button
                         type="button"
@@ -46,9 +47,9 @@ export default function Header({
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <CgClose className="w-8 h-8" />
+                            <Icons.Close className="w-8 h-8" />
                         ) : (
-                            <FiMenu className="w-8 h-8" />
+                            <Icons.Menu className="w-8 h-8" />
                         )}
                     </button>
                 </div>
@@ -60,7 +61,7 @@ export default function Header({
             >
                 <div className="hidden xl:relative xl:max-w-lg xl:w-full xl:block">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <FiSearch className="w-6 h-6 text-gray-600" />
+                        <Icons.Search className="w-6 h-6 text-gray-600" />
                     </div>
                     <input
                         type="text"

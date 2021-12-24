@@ -3,11 +3,9 @@ import { useEffect, useState } from 'react';
 import { Icons } from '../assets/icons';
 import { useNavigate } from 'react-router-dom';
 
-interface LoginProps {
-    toggleTheme: () => void;
-}
+interface LoginProps {}
 
-export default function Login({ toggleTheme }: LoginProps) {
+export default function Login(props: LoginProps) {
     const [stage, setStage] = useState(1);
     let navigate = useNavigate();
 
@@ -41,14 +39,7 @@ export default function Login({ toggleTheme }: LoginProps) {
                                 <h2 className="text-2xl font-semibold ">
                                     Login
                                 </h2>
-                                <a
-                                    href="/sign-up"
-                                    className="flex items-center mt-1 text-sm text-gray-400"
-                                >
-                                    Don't have an account?
-                                    <Icons.ArrowUpRight className="w-4 h-4" />
-                                </a>
-                                <label className="block mt-2">
+                                <label className="block mt-4">
                                     <span className="block font-medium text-gray-600 dark:text-gray-200">
                                         E-mail
                                     </span>
@@ -59,8 +50,14 @@ export default function Login({ toggleTheme }: LoginProps) {
                                     />
                                 </label>
                                 <label className="block mt-2">
-                                    <span className="block font-medium text-gray-600 dark:text-gray-200">
+                                    <span className="flex items-center justify-between font-medium text-gray-600 dark:text-gray-200">
                                         Password
+                                        <a
+                                            href="/new-password"
+                                            className="block text-sm text-gray-400"
+                                        >
+                                            Forgot password?
+                                        </a>
                                     </span>
                                     <input
                                         type="password"
@@ -68,15 +65,14 @@ export default function Login({ toggleTheme }: LoginProps) {
                                         className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
                                     />
                                 </label>
-                                <div className="mt-2">
-                                    <a
-                                        href="/new-password"
-                                        className="block text-sm text-gray-400"
-                                    >
-                                        Forgot password?
-                                    </a>
-                                </div>
-                                <p className="px-3 py-2 mt-2 text-center text-gray-600 bg-red-400 rounded-md shadow dark:bg-red-500 dark:text-gray-300">
+                                <a
+                                    href="/sign-up"
+                                    className="flex items-center mt-2 text-sm text-gray-400"
+                                >
+                                    Don't have an account?
+                                    <Icons.ArrowUpRight className="w-4 h-4" />
+                                </a>
+                                <p className="px-3 py-2 mt-4 text-center text-gray-600 bg-red-400 rounded-md shadow dark:bg-red-500 dark:text-gray-300">
                                     Wrong password!
                                 </p>
                                 <div className="flex justify-center">

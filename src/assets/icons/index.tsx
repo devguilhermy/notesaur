@@ -23,6 +23,8 @@ import {
     FiArrowUpLeft as ArrowUpLeft,
     FiArrowUpRight as ArrowUpRight,
     FiBell as Bell,
+    FiMenu as Menu,
+    FiSearch as Search,
     FiTrash as Trash,
 } from 'react-icons/fi';
 import {
@@ -52,7 +54,9 @@ export const Icons = {
     Money,
     Close,
     DotsMenu,
+    Menu,
     Label,
+    Search,
     Star,
     People,
     Settings,

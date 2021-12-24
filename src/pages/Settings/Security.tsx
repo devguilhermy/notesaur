@@ -15,7 +15,7 @@ export default function SecuritySettings() {
             <div className="mt-6">
                 <h3 className="text-lg font-medium">2FA Authentication</h3>
                 <hr className="mt-2 text-gray-600" />
-                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 xl:gap-4 gap-6">
                     <li className="p-5 border-2 text-gray-700 dark:text-gray-100 border-1 rounded-lg flex shadow hover:shadow-md shadow-transition flex-col">
                         <div className="flex items-center">
                             <Icons.Phone

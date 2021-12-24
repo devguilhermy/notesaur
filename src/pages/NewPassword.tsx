@@ -1,11 +1,9 @@
 import { Icons } from '../assets/icons';
 import { useState } from 'react';
 
-interface NewPasswordProps {
-    toggleTheme: () => void;
-}
+interface NewPasswordProps {}
 
-export default function NewPassword({ toggleTheme }: NewPasswordProps) {
+export default function NewPassword(props: NewPasswordProps) {
     const [stage, setStage] = useState(1);
 
     return (
