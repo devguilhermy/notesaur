@@ -1,156 +1,147 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-
 import { Icons } from '../assets/icons';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useTheme } from '../hooks/useTheme';
 
 interface HeaderProps {
-    className?: string;
-    columns?: string;
-    setColumns?: Dispatch<SetStateAction<string>>;
+    className: string;
 }
 
-export default function Header({
-    className,
-    columns,
-    setColumns,
-}: HeaderProps) {
+export default function Header({ className }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
     const { toggleTheme } = useTheme();
 
     return (
         <header
-            className={`bg-white dark:bg-gray-700 xl:bg-white sm:flex sm:items-center sm:justify-between ${className}`}
+            className={`relative flex flex-col sm:justify-between sm:items-center sm:flex-row p-5 bg-white dark:bg-gray-800 ${className} ${
+                isMobileMenuOpen ? 'h-screen sm:h-auto' : ''
+            } 'sm:flex'}`}
         >
-            <div className="flex items-center justify-between px-4 py-3 sm:py-4 xl:py-5 xl:w-72 xl:justify-center">
-                <Link
-                    to="/home"
-                    className="flex items-center"
-                    style={{ fontFamily: 'Montserrat, sans-serif' }}
-                >
-                    <span>
-                        <Icons.Note className="w-8 h-8" />
-                    </span>
-                    <span className="ml-1 text-3xl font-black dark:text-white">
-                        NOTE
-                    </span>
-                    <span className="text-3xl font-light dark:text-white">
-                        SAUR
-                    </span>
-                </Link>
-                <div className="sm:hidden">
-                    <button
-                        type="button"
-                        className="p-1 text-gray-400 transition hover:text-white focus:outline-none focus:text-white "
-                        aria-label="Menu"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            <div className="flex justify-between">
+                <div>
+                    <Link
+                        to="/home"
+                        className="flex items-center"
+                        style={{ fontFamily: 'Montserrat, sans-serif' }}
                     >
-                        {isMobileMenuOpen ? (
-                            <Icons.Close className="w-8 h-8" />
-                        ) : (
-                            <Icons.Menu className="w-8 h-8" />
-                        )}
+                        <span>
+                            <Icons.Note className="w-8 h-8" />
+                        </span>
+                        <span className="ml-1 text-3xl font-black dark:text-white">
+                            NOTE
+                        </span>
+                        <span className="text-3xl font-light dark:text-white">
+                            SAUR
+                        </span>
+                    </Link>
+                </div>
+                <button
+                    className="p-1 rounded-full sm:hidden"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    <Icons.Menu className="w-8 h-8" />
+                </button>
+            </div>
+            <div
+                className={`my-6 sm:my-0 flex-col gap-2 sm:flex-row sm:items-center ${
+                    isMobileMenuOpen ? 'flex' : 'hidden sm:flex'
+                }`}
+            >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
+                    <button className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full">
+                        <Icons.Plus className="w-6 h-6" />
+                        <span className="sm:hidden text-lg tracking-tight font-semibold">
+                            New note
+                        </span>
+                    </button>
+                    <button
+                        className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full"
+                        onClick={() => toggleTheme()}
+                    >
+                        <Icons.DarkMode className="w-6 h-6" />
+                        <span className="sm:hidden text-lg tracking-tight font-semibold">
+                            Toggle theme
+                        </span>
+                    </button>
+                    <button className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full">
+                        <Icons.Grid className="w-6 h-6" />
+                        <span className="sm:hidden text-lg tracking-tight font-semibold">
+                            Toggle grid
+                        </span>
+                    </button>
+                    <button
+                        className="hidden sm:flex gap-2 items-center justify-center border-4 border-gray-600 dark:border-gray-100 rounded-full"
+                        onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)}
+                    >
+                        <img
+                            src="https://avatars.githubusercontent.com/u/55157846?v=4"
+                            alt="Avatar"
+                            className="w-8 rounded-full"
+                        />
                     </button>
                 </div>
-            </div>
-            <nav
-                className={`${
-                    isMobileMenuOpen ? 'block' : 'hidden'
-                } text-white xl:text-gray-800 sm:flex xl:flex-1 xl:justify-between xl:px-5 xl:items-center`}
-            >
-                <div className="hidden xl:relative xl:max-w-lg xl:w-full xl:block">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <Icons.Search className="w-6 h-6 text-gray-600" />
+                <div className="mt-8 flex flex-col items-center">
+                    <div className="flex items-center gap-3 sm:hidden">
+                        <img
+                            src="https://avatars.githubusercontent.com/u/55157846?v=4"
+                            alt="Avatar"
+                            className="w-20 rounded-full border-4 border-gray-600 dark:border-gray-100"
+                        />
+                        <p className="flex flex-col">
+                            <span className="text-xl font-bold">Guilherme</span>
+                            <span className="text-lg text-gray-500">
+                                gui@gmail.com
+                            </span>
+                        </p>
                     </div>
-                    <input
-                        type="text"
-                        placeholder="Search notes"
-                        className="w-full py-2 pl-10 pr-4 text-gray-600 transition bg-gray-200 border-transparent rounded-lg shadow focus:outline-none focus:bg-white focus:text-gray-800"
-                    />
-                </div>
-                {setColumns && (
-                    <select
-                        name=""
-                        id=""
-                        className="block px-3 py-2 ml-auto bg-white border-2 border-transparent shadow dark:text-white dark:bg-gray-800 rounded-xl"
-                        value={columns}
-                        onChange={(event) => setColumns(event.target.value)}
+                    <div
+                        className={`mt-4 w-full flex flex-col gap-2 justify-center ${
+                            isAccountMenuOpen
+                                ? 'sm:w-56 sm:absolute sm:z-20 sm:top-full sm:right-4 sm:bg-white sm:shadow sm:p-5 sm:rounded-xl'
+                                : 'sm:hidden'
+                        }`}
                     >
-                        <option value="">Columns</option>
-                        <option value="1" className="inline">
-                            1
-                        </option>
-                        <option value="2" className="inline">
-                            2
-                        </option>
-                        <option value="3" className="hidden md:inline">
-                            3
-                        </option>
-                        <option value="4" className="hidden lg:inline">
-                            4
-                        </option>
-                        <option value="5" className="hidden xl:inline">
-                            5
-                        </option>
-                        <option value="6" className="hidden xl:inline">
-                            6
-                        </option>
-                    </select>
-                )}
-                <div className="xl:ml-5">
-                    <div className="px-2 pt-2 pb-5 font-medium sm:py-0 sm:flex sm:items-center sm:px-5 sm:text-sm xl:px-0">
-                        <button className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3 focus:bg-gray-700">
-                            <Icons.Plus className="block" />
-                        </button>
-                        <button
-                            className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3"
-                            onClick={() => toggleTheme()}
+                        <a
+                            href="/"
+                            className="flex gap-2 items-center justify-center p-2 bg-gray-500 dark:bg-gray-100 text-white dark:text-gray-600 shadow rounded-full"
                         >
-                            <Icons.DarkMode className="block dark:hidden" />
-                            <Icons.LightMode className="hidden dark:block" />
-                        </button>
-                        <button className="block p-2 mt-3 transition bg-gray-200 rounded-full sm:mt-0 sm:ml-3 focus:bg-gray-700">
-                            <Icons.Grid className="block" />
-                            {/* <Icons.Stack className="block" /> */}
-                        </button>
-                        <div className="relative px-3 py-3 mt-3 border-t border-gray-600 sm:p-0 sm:border-0 sm:mt-0 sm:ml-3">
-                            <div className="sm:hidden">
-                                <div className="flex items-center ">
-                                    <img
-                                        src="https://avatars.githubusercontent.com/u/55157846?v=4"
-                                        alt="Avatar"
-                                        className="h-12 transition border-4 border-gray-600 rounded-full hover:border-white cover-center"
-                                    />
-                                    <span className="ml-2 font-semibold sm:hidden">
-                                        Dev Guilhermy
-                                    </span>
-                                </div>
-                                <div className="py-2 mt-2 text-gray-400 sm:hidden">
-                                    <a
-                                        href="/"
-                                        className="block sm:border-b hover:text-white focus:text-white "
-                                    >
-                                        Account
-                                    </a>
-                                    <a
-                                        href="/"
-                                        className="block mt-2 sm:border-b hover:text-white focus:text-white "
-                                    >
-                                        My listings
-                                    </a>
-                                    <a
-                                        href="/"
-                                        className="block mt-2 hover:text-white focus:text-white"
-                                    >
-                                        Sign out
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <Icons.User className="w-6 h-6" />
+                            <span className="text-lg tracking-tight font-medium">
+                                Account
+                            </span>
+                        </a>
+                        <a
+                            href="/"
+                            className="flex gap-2 items-center justify-center p-2 bg-gray-500 dark:bg-gray-100 text-white dark:text-gray-600 shadow rounded-full"
+                        >
+                            <Icons.Settings className="w-6 h-6" />
+                            <span className="text-lg tracking-tight font-medium">
+                                Settings
+                            </span>
+                        </a>
+                        <a
+                            href="/"
+                            className="flex gap-2 items-center justify-center p-2 bg-gray-500 dark:bg-gray-100 text-white dark:text-gray-600 shadow rounded-full"
+                        >
+                            <Icons.Support className="w-6 h-6" />
+                            <span className="text-lg tracking-tight font-medium">
+                                Support
+                            </span>
+                        </a>
+                        <a
+                            href="/"
+                            className="flex gap-2 items-center justify-center p-2 bg-gray-500 dark:bg-gray-100 text-white dark:text-gray-600 shadow rounded-full"
+                        >
+                            <Icons.Logout className="w-6 h-6" />
+                            <span className="text-lg tracking-tight font-medium">
+                                Log out
+                            </span>
+                        </a>
                     </div>
                 </div>
-            </nav>
+            </div>
         </header>
     );
 }

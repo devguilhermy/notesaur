@@ -40,11 +40,7 @@ export default function NoteList(props: NoteListProps) {
 
     return (
         <div className="flex flex-col h-screen min-h-screen antialiased bg-gray-200 dark:bg-gray-900">
-            <Header
-                className="flex-shrink-0"
-                columns={columns}
-                setColumns={setColumns}
-            />
+            <Header className="flex-shrink-0" />
             <div className="flex flex-1 overflow-y-hidden">
                 <Sidebar className="" />
                 <ResponsiveMasonry

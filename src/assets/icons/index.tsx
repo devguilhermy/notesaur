@@ -8,6 +8,7 @@ import {
     MdInfoOutline as Info,
     MdLabelOutline as Label,
     MdLightMode as LightMode,
+    MdOutlineLogout as Logout,
     MdMail as Mail,
     MdOpenInFull as Open,
     MdOutlinePeopleAlt as People,
@@ -18,6 +19,7 @@ import {
     MdSettings as Settings,
     MdSmartphone as Smartphone,
     MdStarBorder as Star,
+    MdOutlineHelpOutline as Support,
 } from 'react-icons/md';
 import {
     FiArrowUpLeft as ArrowUpLeft,
@@ -83,4 +85,6 @@ export const Icons = {
     Mail,
     Phone,
     Bell,
+    Support,
+    Logout,
 };

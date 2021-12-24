@@ -22,7 +22,7 @@ export default function Sidebar({ className }: SidebarProps) {
         <>
             {isSidebarOpen && <div className="w-21"> </div>}
             <section
-                className={`bg-gray-200 dark:bg-gray-800 h-full ${className} ${
+                className={`bg-gray-100 dark:bg-gray-700 h-full ${className} ${
                     isSidebarOpen && 'fixed z-20 w-72 lg:block'
                 }`}
             >
@@ -32,7 +32,7 @@ export default function Sidebar({ className }: SidebarProps) {
                     style={{ height: 'calc(100vh - 74px)' }}
                 >
                     <button
-                        className="flex items-center px-3 py-2 mx-5 mt-5 bg-white dark:bg-gray-700 rounded-xl"
+                        className="flex items-center px-3 py-2 mx-5 mt-5 bg-white dark:bg-gray-600 rounded-xl"
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                     >
                         <Icons.Label
@@ -63,7 +63,7 @@ export default function Sidebar({ className }: SidebarProps) {
                                 return (
                                     <a
                                         href={`/${label.name}`}
-                                        className="flex items-center px-3 py-2 bg-gray-300 dark:bg-gray-700 rounded-xl"
+                                        className="flex items-center px-3 py-2 bg-gray-300 dark:bg-gray-600 rounded-xl"
                                     >
                                         <Icons.Label className="w-5 h-5 text-gray-400 dark:text-gray-200 " />{' '}
                                         <span
@@ -82,7 +82,7 @@ export default function Sidebar({ className }: SidebarProps) {
                     <div className="flex flex-col justify-end flex-1 gap-2 p-5">
                         <a
                             href={'/favorites'}
-                            className="flex items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-xl"
+                            className="flex items-center px-3 py-2 bg-white dark:bg-gray-600 rounded-xl"
                         >
                             <Icons.Star className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
                             <span
@@ -95,7 +95,7 @@ export default function Sidebar({ className }: SidebarProps) {
                         </a>
                         <a
                             href={`/shared`}
-                            className="flex items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-xl"
+                            className="flex items-center px-3 py-2 bg-white dark:bg-gray-600 rounded-xl"
                         >
                             <Icons.People className="w-5 h-5 text-gray-700 dark:text-gray-200" />{' '}
                             <span
@@ -108,7 +108,7 @@ export default function Sidebar({ className }: SidebarProps) {
                         </a>
                         <a
                             href={`/posts`}
-                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700 "
+                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-600 "
                         >
                             <Icons.Newspaper className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
                             <span
@@ -121,7 +121,7 @@ export default function Sidebar({ className }: SidebarProps) {
                         </a>
                         <a
                             href={`/trash`}
-                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
+                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-600"
                         >
                             <Icons.Trash className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
                             <span
@@ -134,7 +134,7 @@ export default function Sidebar({ className }: SidebarProps) {
                         </a>
                         <a
                             href={'/archive'}
-                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
+                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-600"
                         >
                             <Icons.Archive className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
                             <span
@@ -147,7 +147,7 @@ export default function Sidebar({ className }: SidebarProps) {
                         </a>
                         <a
                             href={`/settings`}
-                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-700"
+                            className="flex items-center px-3 py-2 bg-white rounded-xl dark:bg-gray-600"
                         >
                             <Icons.Settings className="w-5 h-5 text-gray-700 dark:text-gray-200 " />{' '}
                             <span
