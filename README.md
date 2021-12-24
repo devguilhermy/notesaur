@@ -34,6 +34,7 @@ Create and manage notes customizable with labels, theming, media and markdown
 -   [ ] Database
 -   [ ] Multi-factor authentication
 -   [ ] Note sharing
+-   [ ] Keyword mapping for labels/notebooks and for all
 -   [ ] Desktop widgets like Sticky Notes
 
 ### Improve
