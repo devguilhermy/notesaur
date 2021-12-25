@@ -1,10 +1,16 @@
 import { Icons } from '../assets/icons';
+import { Input } from '../components/Input';
 import { useState } from 'react';
 
 interface NewPasswordProps {}
 
 export default function NewPassword(props: NewPasswordProps) {
     const [stage, setStage] = useState(1);
+
+    const [email, setEmail] = useState('');
+    const [new_password, setNewPassword] = useState('');
+    const [new_password_confirmation, setNewPasswordConfirmation] =
+        useState('');
 
     return (
         <div className="flex flex-col justify-between h-screen max-h-screen bg-gray-200 lg:flex-row dark:bg-gray-900">
@@ -35,16 +41,12 @@ export default function NewPassword(props: NewPasswordProps) {
                                 Back to login
                                 <Icons.ArrowUpRight className="w-4 h-4" />
                             </a>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    E-mail
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="me@mail.com"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
+                            <Input
+                                value={email}
+                                setValue={setEmail}
+                                label={'Email'}
+                                className="mt-8"
+                            />
                             {/* <p className="px-3 py-2 mt-2 text-center text-gray-300 bg-red-500 rounded-md shadow">
                                 Wrong password!
                             </p> */}
@@ -74,26 +76,19 @@ export default function NewPassword(props: NewPasswordProps) {
                                 Back to login
                                 <Icons.ArrowUpRight className="w-4 h-4" />
                             </a>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    New password
-                                </span>
-                                <input
-                                    type="password"
-                                    placeholder="*******"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    Confirm new password
-                                </span>
-                                <input
-                                    type="password"
-                                    placeholder="*******"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
+                            <Input
+                                value={new_password}
+                                setValue={setNewPassword}
+                                label={'New password'}
+                                className="mt-8"
+                            />
+
+                            <Input
+                                value={new_password_confirmation}
+                                setValue={setNewPasswordConfirmation}
+                                label={'Password confirmation'}
+                                className="mt-8"
+                            />
                             {/* <p className="px-3 py-2 mt-2 text-center text-gray-300 bg-red-500 rounded-md shadow">
                                 Wrong password!
                             </p> */}

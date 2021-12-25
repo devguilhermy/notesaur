@@ -78,7 +78,7 @@ export default function Header({ className }: HeaderProps) {
                         <img
                             src="https://avatars.githubusercontent.com/u/55157846?v=4"
                             alt="Avatar"
-                            className="w-8 rounded-full"
+                            className="w-12 rounded-full"
                         />
                     </button>
                 </div>

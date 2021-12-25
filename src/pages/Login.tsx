@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Icons } from '../assets/icons';
+import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {}
@@ -12,6 +13,9 @@ export default function Login(props: LoginProps) {
     if (stage === 2) {
         navigate('/home');
     }
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <>
@@ -37,40 +41,32 @@ export default function Login(props: LoginProps) {
                         <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                             <div>
                                 <h2 className="text-2xl font-semibold ">
-                                    Login
+                                    Welcome back! Sign in
                                 </h2>
-                                <label className="block mt-4">
-                                    <span className="block font-medium text-gray-600 dark:text-gray-200">
-                                        E-mail
-                                    </span>
-                                    <input
-                                        type="text"
-                                        placeholder="me@mail.com"
-                                        className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                    />
-                                </label>
-                                <label className="block mt-2">
-                                    <span className="flex items-center justify-between font-medium text-gray-600 dark:text-gray-200">
-                                        Password
-                                        <a
-                                            href="/new-password"
-                                            className="block text-sm text-gray-400"
-                                        >
-                                            Forgot password?
-                                        </a>
-                                    </span>
-                                    <input
-                                        type="password"
-                                        placeholder="*******"
-                                        className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                    />
-                                </label>
                                 <a
                                     href="/sign-up"
-                                    className="flex items-center mt-2 text-sm text-gray-400"
+                                    className="flex items-center text-sm text-gray-400 hover:text-gray-100 transition"
                                 >
                                     Don't have an account?
                                     <Icons.ArrowUpRight className="w-4 h-4" />
+                                </a>
+                                <Input
+                                    value={email}
+                                    setValue={setEmail}
+                                    label="Email"
+                                    className="mt-8"
+                                />
+                                <Input
+                                    value={password}
+                                    setValue={setPassword}
+                                    label={'Password'}
+                                    className="mt-8"
+                                />
+                                <a
+                                    href="/new-password"
+                                    className="mt-2 block text-sm text-gray-400 hover:text-gray-100 transition"
+                                >
+                                    Forgot password?
                                 </a>
                                 <p className="px-3 py-2 mt-4 text-center text-gray-600 bg-red-400 rounded-md shadow dark:bg-red-500 dark:text-gray-300">
                                     Wrong password!

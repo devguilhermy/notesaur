@@ -32,7 +32,9 @@ export default function SignUp(props: SignUpProps) {
                 <div className="px-5 py-8 bg-gray-800 rounded-t-xl lg:w-1/2 lg:rounded-l-xl lg:rounded-tr-none">
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                         <div>
-                            <h2 className="text-2xl font-semibold ">Sign Up</h2>
+                            <h2 className="text-2xl font-semibold ">
+                                Welcome! Sign up
+                            </h2>
                             <a
                                 href="/login"
                                 className="flex items-center mt-1 text-sm text-gray-400"
