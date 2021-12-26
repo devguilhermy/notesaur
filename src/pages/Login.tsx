@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Icons } from '../assets/icons';
 import { Input } from '../components/Input';
+import { StartBanner } from '../components/StartBanner';
 import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {}
@@ -20,22 +21,7 @@ export default function Login(props: LoginProps) {
     return (
         <>
             <div className="flex flex-col justify-between h-screen max-h-screen bg-gray-200 lg:flex-row dark:bg-gray-900">
-                <div className="flex flex-col items-center justify-center flex-1 lg:w-1/2">
-                    <div className="flex items-center">
-                        <span>
-                            <Icons.Note className="w-8 h-8" />
-                        </span>
-                        <span className="ml-1 text-3xl font-black dark:text-white">
-                            NOTE
-                        </span>
-                        <span className="text-3xl font-light dark:text-white">
-                            SAUR
-                        </span>
-                    </div>
-                    <p className="text-xl">
-                        Note-taking has never been so easy!
-                    </p>
-                </div>
+                <StartBanner />
                 {stage === 1 && (
                     <div className="px-5 py-8 bg-white shadow-lg dark:bg-gray-800 rounded-t-xl lg:w-1/2 lg:rounded-l-xl lg:rounded-tr-none">
                         <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
@@ -71,9 +57,9 @@ export default function Login(props: LoginProps) {
                                 <p className="px-3 py-2 mt-4 text-center text-gray-600 bg-red-400 rounded-md shadow dark:bg-red-500 dark:text-gray-300">
                                     Wrong password!
                                 </p>
-                                <div className="flex justify-center">
+                                <div className="flex justify-center mt-8">
                                     <button
-                                        className="block p-3 mt-5 bg-gray-200 rounded-full shadow dark:bg-gray-700"
+                                        className="block p-3 bg-gray-200 rounded-full shadow dark:bg-gray-700"
                                         onClick={() => setStage(2)}
                                     >
                                         <Icons.ArrowRight className="w-5 h-5 text-gray-700 dark:text-gray-200" />

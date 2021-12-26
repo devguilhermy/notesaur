@@ -1,4 +1,6 @@
 import { Icons } from '../assets/icons';
+import { Input } from '../components/Input';
+import { StartBanner } from '../components/StartBanner';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -13,21 +15,16 @@ export default function SignUp(props: SignUpProps) {
         navigate('/home');
     }
 
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [password_confirmation, setPasswordConfirmation] = useState('');
+
     return (
         <div className="flex flex-col justify-between h-screen bg-gray-200 lg:flex-row dark:bg-gray-900">
-            <div className="flex flex-col items-center justify-center flex-1 lg:w-1/2">
-                <div className="flex items-center">
-                    <span>
-                        <Icons.Note className="w-8 h-8" />
-                    </span>
-                    <span className="ml-1 text-3xl font-black dark:text-white">
-                        NOTE
-                    </span>
-                    <span className="text-3xl font-light dark:text-white">
-                        SAUR
-                    </span>
-                </div>
-            </div>
+            <StartBanner />
             {stage === 1 && (
                 <div className="px-5 py-8 bg-gray-800 rounded-t-xl lg:w-1/2 lg:rounded-l-xl lg:rounded-tr-none">
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
@@ -42,38 +39,34 @@ export default function SignUp(props: SignUpProps) {
                                 Already have an account?
                                 <Icons.ArrowUpRight className="w-4 h-4" />
                             </a>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    First name
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="Your name..."
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    Last name
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="Your name..."
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    Birthday
-                                </span>
-                                <input
-                                    type="date"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <div className="flex justify-center">
+                            <Input
+                                value={first_name}
+                                setValue={setFirstName}
+                                label={'First name'}
+                                className="mt-8"
+                            />
+                            <Input
+                                value={last_name}
+                                setValue={setLastName}
+                                label={'Last name'}
+                                className="mt-8"
+                            />
+                            <Input
+                                value={birthday}
+                                setValue={setBirthday}
+                                label={'Birthday'}
+                                className="mt-8 input-date"
+                                onFocus={(event) => {
+                                    event.target.type = 'date';
+                                }}
+                                onBlur={(event) => {
+                                    email === '' &&
+                                        (event.target.type = 'text');
+                                }}
+                            />
+                            <div className="flex justify-center mt-8">
                                 <button
-                                    className="block p-3 mt-5 bg-gray-700 rounded-full shadow"
+                                    className="block p-3 bg-gray-700 rounded-full shadow"
                                     onClick={() => setStage(2)}
                                 >
                                     <Icons.ArrowRight className="w-5 h-5 text-gray-200" />
@@ -87,7 +80,9 @@ export default function SignUp(props: SignUpProps) {
                 <div className="px-5 py-8 bg-gray-800 rounded-t-xl lg:w-1/2 lg:rounded-l-xl lg:rounded-tr-none">
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                         <div>
-                            <h2 className="text-2xl font-semibold ">Sign Up</h2>
+                            <h2 className="text-2xl font-semibold ">
+                                Welcome! Sign up
+                            </h2>
                             <div className="mt-1">
                                 <a
                                     href="/login"
@@ -97,47 +92,36 @@ export default function SignUp(props: SignUpProps) {
                                     <Icons.ArrowUpRight className="w-4 h-4" />
                                 </a>
                             </div>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    E-mail
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="me@mail.com"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <label className="block mt-2">
-                                <span className="block font-medium text-gray-200 dark:text-gray-500">
-                                    Password
-                                </span>
-                                <input
-                                    type="password"
-                                    placeholder="*******"
-                                    className="w-full px-3 py-2 mt-1 bg-gray-100 rounded-md dark:bg-gray-700"
-                                />
-                            </label>
-                            <div className="mt-2">
-                                <a
-                                    href="/"
-                                    className="flex items-center text-sm text-gray-400"
-                                >
-                                    Forgot password?
-                                    <Icons.ArrowUpRight className="w-4 h-4" />
-                                </a>
-                            </div>
-                            <p className="px-3 py-1 mt-2 text-center text-gray-300 bg-red-500 rounded-md shadow bg-opacity-80">
+                            <Input
+                                value={email}
+                                setValue={setEmail}
+                                label={'Email'}
+                                className="mt-8"
+                            />
+                            <Input
+                                value={password}
+                                setValue={setPassword}
+                                label={'Password'}
+                                className="mt-8"
+                            />
+                            <Input
+                                value={password_confirmation}
+                                setValue={setPasswordConfirmation}
+                                label={'Password confirmation'}
+                                className="mt-8"
+                            />
+                            <p className="px-3 py-1 mt-4 text-center text-gray-300 bg-red-500 rounded-md shadow bg-opacity-80">
                                 E-mail is in use!
                             </p>
-                            <div className="flex justify-between">
+                            <div className="flex justify-between mt-8">
                                 <button
-                                    className="block p-3 mt-5 bg-gray-700 rounded-full shadow"
+                                    className="block p-3 bg-gray-700 rounded-full shadow"
                                     onClick={() => setStage(1)}
                                 >
                                     <Icons.ArrowLeft className="w-5 h-5 text-gray-200" />
                                 </button>
                                 <button
-                                    className="block p-3 mt-5 bg-gray-700 rounded-full shadow"
+                                    className="block p-3 bg-gray-700 rounded-full shadow"
                                     onClick={() => setStage(3)}
                                 >
                                     <Icons.ArrowRight className="w-5 h-5 text-gray-200" />
