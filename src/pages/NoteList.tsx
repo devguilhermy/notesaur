@@ -1,9 +1,9 @@
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { useEffect, useState } from 'react';
-
 import Header from '../components/Header';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import Note from '../components/Note';
 import Sidebar from '../components/Sidebar';
+import { useEffect, useState } from 'react';
+
 
 // import Masonry from 'react-masonry-css';
 

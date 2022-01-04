@@ -21,11 +21,9 @@ export default function NewPassword(props: NewPasswordProps) {
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                         <div>
                             <h2 className="text-2xl font-semibold ">
-                                Forgot your password?
+                                Let's reset your password
                             </h2>
-                            <h3 className="text-xl font-medium">
-                                No problem, let's reset it
-                            </h3>
+
                             <a
                                 href="/login"
                                 className="flex items-center mt-2 text-sm text-gray-400"
@@ -59,11 +57,8 @@ export default function NewPassword(props: NewPasswordProps) {
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                         <div>
                             <h2 className="text-2xl font-semibold ">
-                                Forgot your password?
+                                Let's reset your password
                             </h2>
-                            <h3 className="text-xl font-medium">
-                                No problem, let's reset it
-                            </h3>
                             <a
                                 href="/login"
                                 className="flex items-center mt-2 text-sm text-gray-400"
@@ -110,11 +105,8 @@ export default function NewPassword(props: NewPasswordProps) {
                     <div className="max-w-sm mx-auto lg:flex lg:flex-col lg:justify-center lg:h-full">
                         <div>
                             <h2 className="text-2xl font-semibold ">
-                                Forgot your password?
+                                Let's reset your password
                             </h2>
-                            <h3 className="text-xl font-medium">
-                                No problem, let's reset it
-                            </h3>
                             <a
                                 href="/login"
                                 className="flex items-center mt-2 text-sm text-gray-400"

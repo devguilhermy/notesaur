@@ -1,4 +1,9 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import {
+	createContext,
+	ReactNode,
+	useContext,
+	useState
+	} from 'react';
 
 interface ThemeContextProviderProps {
     children: ReactNode;
@@ -15,7 +20,7 @@ interface ThemeContextData {
 const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-    const [theme, setTheme] = useState(
+    const [theme, setTheme] = useState<Theme>(
         (localStorage.getItem('theme') || 'default') as Theme
     );
 

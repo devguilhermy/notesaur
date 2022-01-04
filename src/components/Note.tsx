@@ -1,37 +1,13 @@
-import { useEffect, useState } from 'react';
-
-import { Icons } from '../assets/icons';
 import { dateFormatter } from '../utils/utils';
-
-export interface NoteData {
-    title?: string;
-    color: string;
-    isTrashed: boolean;
-    isPinned: boolean;
-    isArchived: boolean;
-    userEditedTimestampUsec: number;
-    textContent?: string;
-    listContent?: { text: string; isChecked: boolean }[];
-    labels?: { name: string }[];
-    attachments?: {
-        filePath: string;
-        mimetype: string;
-        // mimetype: 'image/png' | 'image/jpeg' | 'image/gif' | 'audio/3gp';
-    }[];
-    annotations?: {
-        description: string;
-        source: string;
-        title: string;
-        url: string;
-    }[];
-    sharees?: { isOwner: boolean; type: string; email: string }[];
-}
+import { Icons } from '../assets/icons';
+import { NoteData, useNotes } from '../hooks/useNotes';
+import { useEffect, useState } from 'react';
 
 interface NoteProps {
     filename: string;
     className?: string;
     isActionsMenuOpen: boolean;
-    setOpenActionsMenu: any;
+    setOpenActionsMenu: (index: number) => void;
     ind: number;
 }
 
@@ -44,17 +20,21 @@ export default function Note({
 }: NoteProps) {
     const [noteData, setNoteData] = useState<NoteData>();
 
+    const { addNote } = useNotes();
+
     useEffect(() => {
         (async () => {
             const response = await fetch(
                 `${process.env.REACT_APP_SERVER_URL}/files/${filename}`
             );
 
-            const notesList = await response.json();
+            const note = await response.json();
 
-            setNoteData(notesList);
+            setNoteData(note);
+
+            // await addNote(note);
         })();
-    }, [filename]);
+    }, [filename, addNote]);
 
     function renderColor(color: string) {
         switch (color) {

@@ -51,7 +51,7 @@ export default function Header({ className }: HeaderProps) {
             >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
                     <button className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full">
-                        <Icons.Plus className="w-6 h-6" />
+                        <Icons.Plus className="w-4 h-4" />
                         <span className="sm:hidden text-lg tracking-tight font-semibold">
                             New note
                         </span>
@@ -60,13 +60,13 @@ export default function Header({ className }: HeaderProps) {
                         className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full"
                         onClick={() => toggleTheme()}
                     >
-                        <Icons.DarkMode className="w-6 h-6" />
+                        <Icons.DarkMode className="w-4 h-4" />
                         <span className="sm:hidden text-lg tracking-tight font-semibold">
                             Toggle theme
                         </span>
                     </button>
                     <button className="flex gap-2 items-center justify-center p-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow rounded-full">
-                        <Icons.Grid className="w-6 h-6" />
+                        <Icons.Grid className="w-4 h-4" />
                         <span className="sm:hidden text-lg tracking-tight font-semibold">
                             Toggle grid
                         </span>
@@ -78,7 +78,7 @@ export default function Header({ className }: HeaderProps) {
                         <img
                             src="https://avatars.githubusercontent.com/u/55157846?v=4"
                             alt="Avatar"
-                            className="w-12 rounded-full"
+                            className="w-10 rounded-full"
                         />
                     </button>
                 </div>
