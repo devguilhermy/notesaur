@@ -6,11 +6,13 @@ import SignUp from './pages/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NotesContextProvider } from './hooks/useNotes';
 import { ThemeContextProvider } from './hooks/useTheme';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
     return (
         <ThemeContextProvider>
             <BrowserRouter>
+                <ToastContainer />
                 <Routes>
                     <Route index element={<Login />} />
                     <Route path="/login" element={<Login />} />
