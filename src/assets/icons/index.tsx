@@ -1,25 +1,30 @@
+import { AiOutlineLink as Link } from 'react-icons/ai';
+import { FaNewspaper as Newspaper } from 'react-icons/fa';
+import { GiDinosaurRex as Dino } from 'react-icons/gi';
+import { HiOutlineChevronDoubleRight as Expand } from 'react-icons/hi';
 import {
-    MdOutlineArchive as Archive,
     MdChevronLeft as ArrowLeft,
     MdChevronRight as ArrowRight,
-    MdOutlineColorLens as Colors,
     MdContentCopy as Copy,
     MdDarkMode as DarkMode,
     MdInfoOutline as Info,
     MdLabelOutline as Label,
     MdLightMode as LightMode,
-    MdOutlineLogout as Logout,
+    MdLockOutline as Privacy,
     MdMail as Mail,
     MdOpenInFull as Open,
+    MdOutlineArchive as Archive,
+    MdOutlineColorLens as Colors,
+    MdOutlineHelpOutline as Support,
+    MdOutlineLogout as Logout,
     MdOutlinePeopleAlt as People,
-    MdPhone as Phone,
     MdOutlinePushPin as Pin,
-    MdLockOutline as Privacy,
     MdOutlineSecurity as Security,
+    MdPhone as Phone,
     MdSettings as Settings,
     MdSmartphone as Smartphone,
     MdStarBorder as Star,
-    MdOutlineHelpOutline as Support,
+    MdOutlineClose as Close,
 } from 'react-icons/md';
 import {
     FiArrowUpLeft as ArrowUpLeft,
@@ -30,7 +35,6 @@ import {
     FiTrash as Trash,
 } from 'react-icons/fi';
 import {
-    RiCloseFill as Close,
     RiComputerLine as Interface,
     RiMoneyDollarCircleLine as Money,
     RiStickyNoteFill as Note,
@@ -42,10 +46,6 @@ import {
     BsPlusLg as Plus,
     BsFillHddStackFill as Stack,
 } from 'react-icons/bs';
-
-import { GiDinosaurRex as Dino } from 'react-icons/gi';
-import { AiOutlineLink as Link } from 'react-icons/ai';
-import { FaNewspaper as Newspaper } from 'react-icons/fa';
 
 export const Icons = {
     Note,
@@ -87,4 +87,5 @@ export const Icons = {
     Bell,
     Support,
     Logout,
+    Expand,
 };

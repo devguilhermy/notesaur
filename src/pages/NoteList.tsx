@@ -52,7 +52,7 @@ export default function NoteList(props: NoteListProps) {
                         2560: 9,
                         2816: 10,
                     }}
-                    className="w-full p-5 mt-6 overflow-y-auto"
+                    className="w-full p-5 mt-6 ml-16 overflow-y-auto"
                 >
                     <Masonry gutter="30px" className="px-6">
                         {notes.map((note, index) => {
@@ -69,6 +69,8 @@ export default function NoteList(props: NoteListProps) {
                                         key={note}
                                     />
                                 );
+                            } else {
+                                return <></>;
                             }
                         })}
                     </Masonry>

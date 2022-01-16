@@ -84,7 +84,7 @@ export default function Note({
                                     'image/gif',
                                 ].includes(attachment.mimetype)
                             )
-                            .map((attachment, index) => {
+                            .map((attachment) => {
                                 return (
                                     <img
                                         src={`${
