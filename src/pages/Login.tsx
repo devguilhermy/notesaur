@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-
 import { Icons } from '../assets/icons';
 import { Input } from '../components/Input';
 import { StartBanner } from '../components/StartBanner';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 interface LoginProps {}
 
@@ -15,6 +16,19 @@ export default function Login(props: LoginProps) {
         navigate('/home');
     }
 
+    function handleNextStage() {
+        if (stage === 1) {
+            if (email === '' || password === '') {
+                toast.info('Please fill all fields!');
+            } else {
+                setStage(2);
+            }
+        }
+        if (stage === 2) {
+            // handleLogin();
+            navigate('/home');
+        }
+    }
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -31,7 +45,7 @@ export default function Login(props: LoginProps) {
                                 </h2>
                                 <a
                                     href="/sign-up"
-                                    className="flex items-center text-sm text-gray-400 hover:text-gray-100 transition"
+                                    className="flex items-center text-sm text-gray-400 transition hover:text-gray-100"
                                 >
                                     Don't have an account?
                                     <Icons.ArrowUpRight className="w-4 h-4" />
@@ -50,7 +64,7 @@ export default function Login(props: LoginProps) {
                                 />
                                 <a
                                     href="/new-password"
-                                    className="mt-2 block text-sm text-gray-400 hover:text-gray-100 transition"
+                                    className="block mt-2 text-sm text-gray-400 transition hover:text-gray-100"
                                 >
                                     Forgot password?
                                 </a>
@@ -60,7 +74,7 @@ export default function Login(props: LoginProps) {
                                 <div className="flex justify-center mt-8">
                                     <button
                                         className="block p-3 bg-gray-200 rounded-full shadow dark:bg-gray-700"
-                                        onClick={() => setStage(2)}
+                                        onClick={() => handleNextStage()}
                                     >
                                         <Icons.ArrowRight className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                                     </button>

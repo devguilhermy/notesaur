@@ -1,3 +1,4 @@
+import { api } from '../services/api';
 import { dateFormatter } from '../utils/utils';
 import { Icons } from '../assets/icons';
 import { NoteData, useNotes } from '../hooks/useNotes';
@@ -24,13 +25,9 @@ export default function Note({
 
     useEffect(() => {
         (async () => {
-            const response = await fetch(
-                `${process.env.REACT_APP_SERVER_URL}/files/${filename}`
-            );
+            const response = await api.get(`/files/${filename}`);
 
-            const note = await response.json();
-
-            setNoteData(note);
+            setNoteData(response.data);
 
             // await addNote(note);
         })();
@@ -277,19 +274,19 @@ export default function Note({
                     isActionsMenuOpen ? 'group-hover:flex' : 'hidden'
                 }`}
             >
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Open className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Pin className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Star className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Colors className="w-5 h-5" />
                 </button>
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full block dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Label className="w-5 h-5" />
                 </button>
                 {/* <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 group-hover:block hover:shadow-md hover:bg-opacity-100">
@@ -301,7 +298,7 @@ export default function Note({
                 <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full group-hover:block hover:shadow-md hover:bg-opacity-100">
                     <Icons.Archive className="w-5 h-5" />
                 </button> */}
-                <button className="p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 block hover:shadow-md hover:bg-opacity-100">
+                <button className="block p-2 transition bg-gray-200 bg-opacity-50 rounded-full dark:bg-gray-800 hover:shadow-md hover:bg-opacity-100">
                     <Icons.Trash className="w-5 h-5" />
                 </button>
             </div>

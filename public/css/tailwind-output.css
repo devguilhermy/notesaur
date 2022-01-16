@@ -570,6 +570,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.ml-16 {
+  margin-left: 4rem;
+}
+
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -612,10 +616,6 @@ body {
 
 .mt-20 {
   margin-top: 5rem;
-}
-
-.ml-16 {
-  margin-left: 4rem;
 }
 
 .block {
@@ -1110,16 +1110,16 @@ body {
   padding: 0.5rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
 
 .p-8 {
   padding: 2rem;
-}
-
-.p-4 {
-  padding: 1rem;
 }
 
 .py-1 {
