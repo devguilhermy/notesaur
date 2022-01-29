@@ -6,15 +6,15 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ className }: SidebarProps) {
-    const [labels, setLabels] = useState([
-        { name: 'Receitas' },
-        { name: 'Programação' },
-        { name: 'TODO' },
-        { name: 'Viagens' },
-        { name: 'Receitas' },
-        { name: 'Programação' },
-        { name: 'TODO' },
-    ]);
+    // const [labels, setLabels] = useState([
+    //     { name: 'Receitas' },
+    //     { name: 'Programação' },
+    //     { name: 'TODO' },
+    //     { name: 'Viagens' },
+    //     { name: 'Receitas' },
+    //     { name: 'Programação' },
+    //     { name: 'TODO' },
+    // ]);
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 

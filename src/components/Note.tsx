@@ -3,6 +3,7 @@ import { dateFormatter } from '../utils/utils';
 import { Icons } from '../assets/icons';
 import { NoteData, useNotes } from '../hooks/useNotes';
 import { useEffect, useState } from 'react';
+import { useLabels } from '../hooks/useLabels';
 
 interface NoteProps {
     filename: string;
@@ -22,6 +23,7 @@ export default function Note({
     const [noteData, setNoteData] = useState<NoteData>();
 
     const { addNote } = useNotes();
+    const { handleAddLabels } = useLabels();
 
     useEffect(() => {
         (async () => {
@@ -29,9 +31,13 @@ export default function Note({
 
             setNoteData(response.data);
 
+            // if (response.data?.labels) {
+            //     handleAddLabels(response.data.labels);
+            // }
+
             // await addNote(note);
         })();
-    }, [filename, addNote]);
+    }, [filename, addNote, handleAddLabels]);
 
     function renderColor(color: string) {
         switch (color) {

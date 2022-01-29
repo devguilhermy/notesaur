@@ -57,7 +57,7 @@ export default function NoteList(props: NoteListProps) {
                     <Masonry gutter="30px" className="px-6">
                         {notes.map((note, index) => {
                             console.log(openActionsMenu);
-                            if (index < 100) {
+                            if (index < 10) {
                                 return (
                                     <Note
                                         filename={note}
