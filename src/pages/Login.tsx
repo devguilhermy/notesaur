@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 interface LoginProps {}
 
-export default function Login(props: LoginProps) {
+export default function Login({}: LoginProps) {
     const [stage, setStage] = useState(1);
     let navigate = useNavigate();
 

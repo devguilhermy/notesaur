@@ -8,6 +8,7 @@ import { LabelsContextProvider } from './hooks/useLabels';
 import { NotesContextProvider } from './hooks/useNotes';
 import { ThemeContextProvider } from './hooks/useTheme';
 import { ToastContainer } from 'react-toastify';
+import './styles/tailwind-input.css';
 
 export default function App() {
     return (

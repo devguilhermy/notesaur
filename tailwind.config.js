@@ -1,5 +1,5 @@
 module.exports = {
-    content: ['./src/**/*.{ts,tsx,js,jsx}', './public/index.html'],
+    content: ['./src/**/*.tsx', './index.html'],
     darkMode: 'class', // or 'media' or 'false'
     theme: {
         extend: {
@@ -9,5 +9,4 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
 };
