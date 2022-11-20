@@ -4,58 +4,40 @@ import {
 	useContext,
 	useState
 	} from 'react';
-
-export interface NoteData {
-    title?: string;
-    color: string;
-    isTrashed: boolean;
-    isPinned: boolean;
-    isArchived: boolean;
-    userEditedTimestampUsec: number;
-    textContent?: string;
-    listContent?: { text: string; isChecked: boolean }[];
-    labels?: { name: string }[];
-    attachments?: {
-        filePath: string;
-        mimetype: string;
-        // mimetype: 'image/png' | 'image/jpeg' | 'image/gif' | 'audio/3gp';
-    }[];
-    annotations?: {
-        description: string;
-        source: string;
-        title: string;
-        url: string;
-    }[];
-    sharees?: { isOwner: boolean; type: string; email: string }[];
-}
+import { NoteData } from '../types';
 
 interface NotesContextProviderProps {
-    children: ReactNode;
+	children: ReactNode;
 }
 
 interface NotesContextData {
-    note_list: NoteData[];
-    addNote: (note: NoteData) => void;
+	noteList: NoteData[];
+	addNote: (note: NoteData) => void;
+	addNotes: (notes: NoteData[]) => void;
 }
 
 const NotesContext = createContext<NotesContextData>({} as NotesContextData);
 
 export function NotesContextProvider({ children }: NotesContextProviderProps) {
-    const [note_list, setNoteList] = useState<NoteData[]>([]);
+	const [noteList, setNoteList] = useState<NoteData[]>([]);
 
-    async function addNote(note: NoteData) {
-        setNoteList([...note_list, note]);
-    }
+	function addNote(note: NoteData) {
+		setNoteList((noteList) => [...noteList, note]);
+	}
 
-    return (
-        <NotesContext.Provider value={{ note_list, addNote }}>
-            {children}
-        </NotesContext.Provider>
-    );
+	function addNotes(notes: NoteData[]) {
+		setNoteList((noteList) => [...noteList, ...notes]);
+	}
+
+	return (
+		<NotesContext.Provider value={{ noteList, addNote, addNotes }}>
+			{children}
+		</NotesContext.Provider>
+	);
 }
 
 export function useNotes() {
-    const context = useContext(NotesContext);
+	const context = useContext(NotesContext);
 
-    return context;
+	return context;
 }

@@ -5,39 +5,38 @@ import {
 	useState
 	} from 'react';
 export interface Label {
-    name: string;
+	name: string;
 }
 
 interface LabelsContextData {
-    labels: Label[];
-    handleAddLabels: (newLabels: Label[]) => Promise<void>;
+	labelList: Label[];
+	handleAddLabels: (newLabels: Label[]) => void;
 }
 
 interface LabelsContextProviderProps {
-    children: ReactNode;
+	children: ReactNode;
 }
 
 const LabelsContext = createContext<LabelsContextData>({} as LabelsContextData);
 
 export function LabelsContextProvider({
-    children,
+	children,
 }: LabelsContextProviderProps) {
-    const [labels, setLabels] = useState<Label[]>([]);
+	const [labelList, setLabelList] = useState<Label[]>([]);
 
-    async function handleAddLabels(newLabels: Label[]) {
-        await setLabels([...labels, ...newLabels]);
-        return;
-    }
+	function handleAddLabels(newLabels: Label[]) {
+		setLabelList((labelList) => [...labelList, ...newLabels]);
+	}
 
-    return (
-        <LabelsContext.Provider value={{ labels, handleAddLabels }}>
-            {children}
-        </LabelsContext.Provider>
-    );
+	return (
+		<LabelsContext.Provider value={{ labelList, handleAddLabels }}>
+			{children}
+		</LabelsContext.Provider>
+	);
 }
 
 export function useLabels() {
-    const ctx = useContext(LabelsContext);
+	const ctx = useContext(LabelsContext);
 
-    return ctx;
+	return ctx;
 }
